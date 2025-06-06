@@ -1,0 +1,472 @@
+
+/*ESTILIZAÇÃO DO entrada_professor.php */
+.form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-container input[type="text"] {
+            width: calc(100% - 22px); /* Ajusta para padding e borda */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+
+        /*ESTILIZAÇÃO DO agendaProfessor.php */
+
+        
+       /* table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .agenda-lista {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px; /* Espaço entre as seções */
+       /* }
+        .agenda-lista h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }*/
+
+        /* Estilos Gerais (podem ser do seu arquivo existente) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #555;
+}
+
+main {
+    width: 95%; /* Use uma largura percentual para ser responsivo */
+    max-width: 1200px; /* Define uma largura máxima para não ficar muito grande em telas largas */
+    margin: 20px auto; /* Centraliza o conteúdo principal */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Adiciona scroll horizontal se a tabela for muito larga */
+}
+
+/* --- Estilos para as Tabelas --- */
+table {
+    width: 100%; /* Faz a tabela ocupar 100% da largura do seu container (main) */
+    border-collapse: collapse; /* Remove o espaçamento entre as bordas das células */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    table-layout: fixed; /* Ajuda a distribuir o espaço das colunas de forma mais controlada */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px 8px; /* Mais padding para melhor visualização */
+    text-align: left;
+    vertical-align: top; /* Alinha o conteúdo ao topo da célula */
+    word-wrap: break-word; /* Quebra palavras longas para evitar overflow */
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo para linhas pares */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Efeito hover nas linhas */
+}
+
+/* Estilos para as mensagens de status/erro */
+.status-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.error-message-display {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.no-data {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilos específicos para o status de aprovação */
+.aprovado {
+    color: green;
+    font-weight: bold;
+}
+
+.reprovado {
+    color: red;
+    font-weight: bold;
+}
+
+.pendente {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Estilo para links de ação (ex: Agendar Defesa) */
+.action-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.action-link:hover {
+    background-color: #0056b3;
+}
+
+/* --- Ajuste de Largura das Colunas (Opcional, mas útil para controle) --- */
+/* Você pode ajustar essas porcentagens. A soma total deve ser 100%. */
+/* Se sua tabela tem muitas colunas, algumas terão que ser mais estreitas. */
+/* As porcentagens abaixo são um exemplo e precisarão ser ajustadas para o seu caso */
+/* Se a tabela for muito grande, o `overflow-x: auto` no `main` vai adicionar uma barra de rolagem. */
+
+table.agendamentos-table th:nth-child(1),
+table.agendamentos-table td:nth-child(1) { width: 18%; /* Título do TCC */ }
+table.agendamentos-table th:nth-child(2),
+table.agendamentos-table td:nth-child(2) { width: 10%; /* Orientador */ }
+table.agendamentos-table th:nth-child(3),
+table.agendamentos-table td:nth-child(3) { width: 15%; /* Alunos */ }
+table.agendamentos-table th:nth-child(4),
+table.agendamentos-table td:nth-child(4) { width: 8%; /* Tipo TCC */ }
+table.agendamentos-table th:nth-child(5),
+table.agendamentos-table td:nth-child(5) { width: 12%; /* Data e Hora */ }
+table.agendamentos-table th:nth-child(6),
+table.agendamentos-table td:nth-child(6) { width: 10%; /* Local */ }
+table.agendamentos-table th:nth-child(7),
+table.agendamentos-table td:nth-child(7) { width: 8%; /* Convidado 1 */ }
+table.agendamentos-table th:nth-child(8),
+table.agendamentos-table td:nth-child(8) { width: 8%; /* Convidado 2 */ }
+table.agendamentos-table th:nth-child(9),
+table.agendamentos-table td:nth-child(9) { width: 5%; /* Nota Final */ }
+table.agendamentos-table th:nth-child(10),
+table.agendamentos-table td:nth-child(10) { width: 6%; /* Status */ }
+table.agendamentos-table th:nth-child(11),
+table.agendamentos-table td:nth-child(11) { width: 8%; /* Curso */ }
+table.agendamentos-table th:nth-child(12),
+table.agendamentos-table td:nth-child(12) { width: 8%; /* Cidade */ }
+
+
+table.nao-agendados-table th:nth-child(1),
+table.nao-agendados-table td:nth-child(1) { width: 40%; /* Título do TCC */ }
+table.nao-agendados-table th:nth-child(2),
+table.nao-agendados-table td:nth-child(2) { width: 30%; /* Alunos */ }
+table.nao-agendados-table th:nth-child(3),
+table.nao-agendados-table td:nth-child(3) { width: 15%; /* Tipo TCC */ }
+table.nao-agendados-table th:nth-child(4),
+table.nao-agendados-table td:nth-child(4) { width: 15%; /* Ações */ }
+
+
+/* Media Queries para Responsividade em Telas Menores */
+@media (max-width: 768px) {
+    main {
+        width: 98%;
+        padding: 15px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block; /* Força elementos da tabela a se comportarem como blocos */
+    }
+
+    /* Oculta o cabeçalho original da tabela para evitar duplicação */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    td {
+        border: none; /* Remove bordas internas para um visual mais limpo */
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Espaço para o pseudo-elemento com o rótulo */
+        text-align: right;
+    }
+
+    td:before {
+        /* Cria um pseudo-elemento para exibir o rótulo da coluna */
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #666;
+    }
+
+    /* Mapeamento dos rótulos das colunas para cada célula (Tabela de Agendamentos) */
+    table.agendamentos-table td:nth-of-type(1):before { content: "Título:"; }
+    table.agendamentos-table td:nth-of-type(2):before { content: "Orientador:"; }
+    table.agendamentos-table td:nth-of-type(3):before { content: "Alunos:"; }
+    table.agendamentos-table td:nth-of-type(4):before { content: "Tipo TCC:"; }
+    table.agendamentos-table td:nth-of-type(5):before { content: "Data e Hora:"; }
+    table.agendamentos-table td:nth-of-type(6):before { content: "Local:"; }
+    table.agendamentos-table td:nth-of-type(7):before { content: "Conv. 1:"; }
+    table.agendamentos-table td:nth-of-type(8):before { content: "Conv. 2:"; }
+    table.agendamentos-table td:nth-of-type(9):before { content: "Nota:"; }
+    table.agendamentos-table td:nth-of-type(10):before { content: "Status:"; }
+    table.agendamentos-table td:nth-of-type(11):before { content: "Curso:"; }
+    table.agendamentos-table td:nth-of-type(12):before { content: "Cidade:"; }
+
+    /* Mapeamento dos rótulos das colunas para cada célula (Tabela de Não Agendados) */
+    table.nao-agendados-table td:nth-of-type(1):before { content: "Título:"; }
+    table.nao-agendados-table td:nth-of-type(2):before { content: "Alunos:"; }
+    table.nao-agendados-table td:nth-of-type(3):before { content: "Tipo TCC:"; }
+    table.nao-agendados-table td:nth-of-type(4):before { content: "Ações:"; }
+
+    .action-link {
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        margin-top: 10px; /* Separar um pouco do rótulo */
+    }
+}
+
+        /*Estilização detalhe_tcc.php*/
+        
+        .details-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-container h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .details-container p {
+            margin-bottom: 10px;
+        }
+
+        .details-container strong {
+            display: inline-block;
+            width: 150px;
+        }
+
+        .details-container .back-link {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /*Estilização detalhe_professor.php*/
+
+        
+        .details-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .details-container h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .details-container p {
+            margin-bottom: 10px;
+        }
+        .details-container strong {
+            display: inline-block;
+            width: 100px;
+        }
+        .details-container .back-link {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+
+        /*Estilização cadastrar_tcc*/
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Garante que o corpo ocupa toda a altura da tela */
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        main {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espaço entre os elementos do formulário */
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: calc(100% - 20px); /* Ajusta a largura para não transbordar com padding */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Inclui padding e borda na largura total */
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        /* Estilos para quando os dropdowns estiverem vazios */
+        select option[disabled] {
+            color: #999;
+        }
+        
+    
+    
